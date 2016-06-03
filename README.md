@@ -2,7 +2,7 @@
 
 This is the official OmniAuth strategy for authenticating against Litmus. To
 use it, you'll need an OAuth2 Application ID and Secret, until this is available
-from with Litmus, please ask us resellers@litmus.com
+from within Litmus, please request this via resellers@litmus.com
 
 ## Usage
 
