@@ -3,9 +3,12 @@ require "omniauth-oauth2"
 module OmniAuth
   module Strategies
     class Litmus < OmniAuth::Strategies::OAuth2
+      OAUTH_HOST = ENV["LITMUS_OAUTH_HOST"] || "https://litmus.com"
+      API_HOST = ENV["LITMUS_API_HOST"] || "https://api.litmus.com"
+
       option :name, "litmus"
       option :client_options, {
-        site: ENV["LITMUS_OAUTH_HOST"] || "https://litmus.com"
+        site: OAUTH_HOST
       }
 
       uid { raw_info["id"].to_s }
@@ -20,7 +23,7 @@ module OmniAuth
       def raw_info
         access_token.options[:mode] = :query
         @raw_info ||= access_token.
-                        get("https://api.litmus.com/v2/users/current").
+                        get("#{API_HOST}/v2/users/current").
                         parsed["user"]
       end
     end
