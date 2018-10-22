@@ -20,11 +20,7 @@ Gem::Specification.new do |spec|
   spec.name          = "omniauth-litmus"
   spec.require_paths = ["lib"]
 
-  # Waiting on fix for https://github.com/intridea/omniauth-oauth2/issues/81
-  # Before rolling on to >= 1.4.x
-  # Essentially Doorkeeper and omniauth don't play well together with OAuth
-  # state param
-  spec.add_dependency 'omniauth-oauth2', '>= 1.1.1', '< 1.4.0'
+  spec.add_dependency 'omniauth-oauth2', '>= 1.1.1'
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
